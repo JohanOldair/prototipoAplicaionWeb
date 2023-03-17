@@ -1,0 +1,16 @@
+form .invalid-feedback {
+	display: block;
+}
+body {
+	background-image: url("https://midu.dev/images/wallpapers/dino-not-found-4k-wallpaper.png");
+}
+label {
+ font-weight: 700;
+ font-size: 17px;
+
+}
+h2 {
+ font-weight: 700;
+ font-size: 30px;
+ text-align: center;
+}

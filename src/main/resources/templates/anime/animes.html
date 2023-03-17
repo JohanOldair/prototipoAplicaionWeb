@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{master.html}">  
+<head>
+<meta charset="utf-8">
+<title>Directorio</title>
+<link rel="stylesheet" type="text/css" href="../static/css/animes.css" th:href="@{/css/animes.css}">
+</head>
+<body>
+
+	<div layout:fragment="directorio">
+   		<div class="tituloPrinncipal">
+   			<h1  class="">Directorio</h1>
+   		</div>	    
+   		
+   		<div class="row g-3" >	
+   			<div class="col-12 col-md-2 col-lg-2" th:each="anime : ${animes}" th:object="${anime}">
+   				<div class="card">
+   				<a th:href="@{/anime/animes/{id}(id=*{id})}">
+	   				<img  th:src="@{/assets/{filename}(filename=*{rutaPortada})}" th:alt="*{titulo}"  class="rounded border border-secondary border-3">
+   					<div class="card-body contenido">
+		   				<h2 class="card-title titulo" th:text="*{titulo}"></h2>
+		   				<span  th:each="categoria : *{categoria}" th:text="${categoria.nombreCategoria}" class="Type tv"></span>
+   					</div>
+   				</a>
+   				</div>
+   			</div>
+   			
+   			<div class="row mt-4 " th:with="page=${animes}">
+   				<div class="col-sm-5">
+   					<div sd:pagination-summary></div>
+   				</div>
+   				<div class="col-sm-4">
+   					<nav>
+   						<ul class="pagination" sd:pagination="full"></ul>
+   					</nav>
+   				</div>
+   			</div>
+   			
+   		</div>
+	</div>
+</body>
+</html>
+

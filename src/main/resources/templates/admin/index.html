@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{master.html}">  
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../static/css/adminIndex.css" th:href="@{/css/adminIndex.css}">
+<script type="text/javascript" src="../static/js/registrarLibro.js"></script>
+<title>Administrar Animes</title>
+</head>
+<body>
+
+   <div layout:fragment="content">
+   
+		<h2 style="text-align: center;"> Administra tu Contenido
+		<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-tv" viewBox="0 0 14 19">
+  			<path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"/>
+		</svg>
+		</h2>
+		
+		<div class="text-end">
+		
+		<button type="button" onclick="location.href='/administracion/animes/nuevo';" class="btn btn-outline-secondary">
+		   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+		      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          Agregar
+		</button>
+		<br>	
+		</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Anime</th>
+					<th>F.Estreno</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="animes : ${animes}" th:object="${animes}">
+				
+					<td style="width:170px; align-items: center; text-align: center;" class="flex flex-wrap">
+					   <a th:href="@{/assets/{filename}(filename=*{rutaPortada})}"  data-fancybox >
+					   <br>  
+					      <img th:src="@{/assets/{filename}(filename=*{rutaPortada})}" alt="" class="img-thumbnail w-100 imga">
+					     <br>
+					  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-eye-fill" viewBox="0 0 16 16">
+					  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+					  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+					</svg> Ver Portada
+					 </a>
+					</td>
+					
+					<td>
+						<div class="Container">
+							<h2 class="Title" th:text="*{titulo}"></h2> 
+							<span class="Type tv"
+								th:each="categoria : *{categoria}" th:text="${categoria.nombreCategoria}">
+							</span>
+						</div>
+						
+						<p th:text="*{sinopsis}" style="text-align: justify;"></p>
+						<div class="Nvgnrs">
+							<span class="generos"
+								th:each="genero : *{generos}" th:text="${genero.titulo}">
+							</span>
+						</div>
+					</td>
+					
+					<td>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div th:text="*{#temporals.format(fechaEstreno,'dd/MM/yyyy')}" class="fecha"></div>
+					</td>
+					
+					<td class="text-end">
+					<br>
+					<a type="button" class="btn btn-outline-primary" th:href="@{/administracion/editar(id=${animes.id})}">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+					   		 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+					    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+						 </svg>
+						 Editar
+					</a>
+					
+					<br/> <br/>  
+					   
+					  <a  href="javascript:void(0)" class="btn btn-outline-danger" th:onclick="'eliminarAnime(' + *{id} +')'">
+						 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+						 	 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+						</svg>
+						 Eliminar
+					</a> 
+					   					   
+					   <form th:id="'eliminarAnimeForm' + *{id}" th:action="@{/administracion/anime/{id}/eliminar(id=*{id})}" method="post" class="d-none"></form>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+	 <div class="row mt-5 " th:with="page=${animes}" >
+		     <div class="col-sm-6">
+            <div sd:pagination-summary></div>
+        </div>
+        <div class="col-sm-6">
+            <nav>
+                <ul class="pagination" sd:pagination="full"></ul>
+            </nav>
+        </div>
+    </div>
+  </div> 
+  
+ 
+	
+</body>
+</html>

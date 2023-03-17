@@ -1,0 +1,29 @@
+form .invalid-feedback {
+	display: block;
+}
+.user{
+	
+	font-size: 15px;
+	text-decoration: none;
+	color: white;
+	font-weight: 500;
+}
+.user:hover{
+	
+	color: white;
+}
+.cerrarSesion {
+	color: #A7ADAD;
+	font-size: 14px;
+	font-weight: 600;
+	background-color: transparent !important;
+	border: none;
+}
+.cerrarSesion:hover {
+	color: white;
+	
+}
+.buscar{
+	align-items: center;
+	align-content: center;
+}

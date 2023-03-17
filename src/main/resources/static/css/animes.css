@@ -1,0 +1,49 @@
+.tituloPrinncipal{
+	padding: 0px 0px 20px;
+	
+}
+.titulo {
+ color: #000000;
+ font-weight: 700;
+font-size: 14px;
+}
+h1{
+text-align: center;
+color: #000000;
+ font-weight: 900;;
+}
+img{
+	width: 172px; 
+     height: 245px; 
+    
+}
+.Type.tv {
+    background-color: #01bcf3;
+    border-color: #01bcf3;
+}
+.Type {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    width: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline-block;
+    height: 16px;
+    border-radius: 8px;
+}
+span{
+
+	text-align: center;
+
+}
+.contenido{
+	text-align: center;
+}
+a{
+	text-decoration:none;
+}	
+.card{
+border:none;
+}
