@@ -44,7 +44,7 @@
 		<form th:action="@{/administracion/guardar}" method="post" th:object="${anime}" enctype="multipart/form-data">
 		
 			<div class="mb-3">
-				<input  id="id"  class="form-control" th:field="*{id}"/>
+				<input  id="id" type="hidden" class="form-control" th:field="*{id}"/>
 			</div>
 		
 			<div class="mb-3">

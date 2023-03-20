@@ -103,14 +103,14 @@ public class AdministracionController {
 				.addObject("listaCategoria", listaCategoria);
 	}
 	
-	@PostMapping("/anime/{id}/eliminar")
-	public String eliminarAnime(@PathVariable Integer id) {
+
+	@GetMapping("/eliminar")
+	public ModelAndView eliminarAnime(@RequestParam("id") Integer id) {
 		Anime anime = animeRepositoryDao.findById(id).get();
 		animeRepositoryDao.delete(anime);
 		almacenServicioImpl.eliminarArchivo(anime.getRutaPortada());
 		
-		return "redirect:/administracion";
+		return new ModelAndView("redirect:/administracion");
 	}
-	
 
 }

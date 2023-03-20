@@ -1,49 +1,35 @@
 .tituloPrinncipal{
 	padding: 0px 0px 20px;
-	
+}
+.card {
+border:none;
+}
+img{
+	width: 200px; 
+    height: 245px; 
 }
 .titulo {
  color: #000000;
  font-weight: 700;
-font-size: 14px;
+ font-size: 13px;
 }
-h1{
-text-align: center;
-color: #000000;
- font-weight: 900;;
-}
-img{
-	width: 172px; 
-     height: 245px; 
-    
-}
-.Type.tv {
-    background-color: #01bcf3;
-    border-color: #01bcf3;
-}
-.Type {
+.span {
     font-size: 10px;
     font-weight: 700;
     line-height: 16px;
-    width: 60px;
+    width: 70px;
     text-align: center;
     text-transform: uppercase;
     color: #fff;
     display: inline-block;
     height: 16px;
     border-radius: 8px;
+    background-color: #01bcf3;
 }
-span{
-
+.contenido {
 	text-align: center;
-
+	padding: 5px;
 }
-.contenido{
-	text-align: center;
-}
-a{
+a {
 	text-decoration:none;
 }	
-.card{
-border:none;
-}

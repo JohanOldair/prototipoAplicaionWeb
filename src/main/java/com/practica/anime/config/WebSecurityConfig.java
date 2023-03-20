@@ -51,22 +51,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
 		bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
-//El numero 4 representa que tan fuerte quieres la encriptacion.
+//El numero 4 representa que tan fuerte quiere la encriptacion.
 //Se puede en un rango entre 4 y 31. 
 //Si no pones un numero el programa utilizara uno aleatoriamente cada vez
-//que inicies la aplicacion, por lo cual tus contrasenas encriptadas no funcionaran bien
+//que inicie la aplicacion, por lo cual las contraseñas encriptadas no funcionaran bien
         return bCryptPasswordEncoder;
     }
 	
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 	
-    //Registra el service para usuarios y el encriptador de contrasena
+    //Registra el service para usuarios y el encriptador de contraseñas
 
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { 
  
-        // Setting Service to find User in the database.
-        // And Setting PassswordEncoder
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());     
     }
     

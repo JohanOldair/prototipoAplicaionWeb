@@ -1,4 +1,4 @@
-package com.practica.anime.controller;
+ package com.practica.anime.controller;
 
 import java.util.List;
 

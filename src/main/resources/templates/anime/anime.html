@@ -16,7 +16,7 @@
 					class="img-fluid rounded w-100 border border-secondary border-4 imagen">
 			</div>
 
-			<section class="WdgtCn col-xs-8 col-sm-8 col-lg-8">
+			<section class="seccionInfo col-xs-8 col-sm-8 col-lg-8">
 				<div class="text-end">
 					<a
 						th:href="*{urlAnime}"
@@ -33,19 +33,19 @@
 				</div>
 					
 				
-				<div class="Container">
-				<h2 class="Title" th:text="*{titulo}"></h2> 
-				<span class="Type tv"
+				<div class="">
+				<h2 class="titulo" th:text="*{titulo}"></h2> 
+				<span class="span"
 					th:each="categoria : *{categoria}" th:text="${categoria.nombreCategoria}">
 				</span>
 				</div>
 				
-				<div class="Nvgnrs">
-					<span class="generos"
+				<div class="container">
+					<span class="contenidoSpan"
 						th:each="genero : *{generos}" th:text="${genero.titulo}"></span><a class="fecha">Fecha de Estreno</a>
-					<span class="generos"th:text="*{fechaEstreno}"></span><a class="epi">Episodios</a>
-					<span class="generos"th:text="*{capitulos}"></span>
-					<p class="Description" th:text="*{sinopsis}"></p>
+					<span class="contenidoSpan"th:text="*{fechaEstreno}"></span><a class="epi">Episodios</a>
+					<span class="contenidoSpan"th:text="*{capitulos}"></span>
+					<p class="descripcion" th:text="*{sinopsis}"></p>
 				</div>
 				
 			</section>

@@ -9,14 +9,7 @@
 <title>Extrenos</title>
 </head>
 <body>
-
-	<div >
-		<h1>hola</h1>
-	</div>
-
-
 	  <div layout:fragment="inicio" class="body2">
-	  <h1 class="titulo">Estrenos</h1>
 		<div class="card" th:each="anime : ${ultimosAnimes}" th:object="${anime}">
 			<div class="face front">
 				<img th:src="@{/assets/{filename}(filename=*{rutaPortada})}" th:alt="*{titulo}">
